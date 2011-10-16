@@ -6,15 +6,15 @@
 class RecursiveChop
   def chop(value, ary)
     pivot = ary.size/2
-    if (ary.size == 1 &&  ary[pivot] != value) || ary[pivot].nil?
-      return -1
+    if ary[pivot].nil? || (ary.size == 1 &&  ary[pivot] != value)
+      -1
     elsif ary[pivot] == value
-      return pivot
+      pivot
     elsif ary[pivot] < value
       rec = chop(value, ary[pivot+1..ary.size-1])
-      return rec == -1 ? -1 : pivot + rec + 1
+      rec == -1 ? -1 : pivot + rec + 1
     else
-      return chop(value, ary[0..pivot-1])
+      chop(value, ary[0..pivot-1])
     end
   end    
 end
