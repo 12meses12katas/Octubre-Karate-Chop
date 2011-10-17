@@ -17,7 +17,7 @@ class IterativeChop {
             } else {
                 left = middle
             }
-            middle += 1 + (right - left) / 2 as Integer
+            middle = left + (1 + right - left) / 2 as Integer
         }
         
         target == values[left] ? left : -1
