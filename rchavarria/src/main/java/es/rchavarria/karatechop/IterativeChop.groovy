@@ -3,6 +3,10 @@ package es.rchavarria.karatechop
 class IterativeChop {
 
     public chop(def target, def values){
-        -1
+        if(!values){
+            return -1
+        }
+        
+        target == values[0] ? 0 : -1 
     }
 }
