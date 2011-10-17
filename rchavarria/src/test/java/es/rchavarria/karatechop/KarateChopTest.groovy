@@ -28,6 +28,14 @@ class KarateChopTest {
     }
     
     @Test
+    void testTwoElementsArray() {
+        assert -1 == karate.chop(0, [1,3])
+        assert 0 == karate.chop(1, [1,3])
+        assert 1 == karate.chop(3, [1,3])
+        assert -1 == karate.chop(5, [1,3])
+    }
+
+    @Test
     @Ignore
     void testThreeElementsArray() {
         assert 0 == karate.chop(1, [1, 3, 5])
