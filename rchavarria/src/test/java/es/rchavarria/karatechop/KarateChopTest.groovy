@@ -22,7 +22,6 @@ class KarateChopTest {
     }
     
     @Test
-    @Ignore
     void testOneElementArray() {
         assert -1 == karate.chop(0, [1])
         assert 0 == karate.chop(1, [1])
