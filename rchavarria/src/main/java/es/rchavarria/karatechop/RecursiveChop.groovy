@@ -11,9 +11,17 @@ class RecursiveChop {
     }
     
     private chopNotEmptyArray(def target, def values, def left, def right) {
-        if(target == values[left]){
-            return left
-        } 
-        target == values[right] ? right : -1
+        def middle = left + (1 + right - left) / 2 as Integer
+        
+        if(left != right){
+            if(target < values[middle]){
+                right = middle - 1
+            } else {
+                left = middle
+            }
+            return chopNotEmptyArray (target, values, left, right)
+        }
+        
+        target == values[left] ? left: -1
     }
 }

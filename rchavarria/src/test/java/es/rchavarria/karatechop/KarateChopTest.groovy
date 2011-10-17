@@ -39,11 +39,11 @@ class KarateChopTest {
     }
 
     @Test
-    @Ignore
     void testThreeElementsArray() {
         assert 0 == karate.chop(1, [1, 3, 5])
         assert 1 == karate.chop(3, [1, 3, 5])
         assert 2 == karate.chop(5, [1, 3, 5])
+
         assert -1 == karate.chop(0, [1, 3, 5])
         assert -1 == karate.chop(2, [1, 3, 5])
         assert -1 == karate.chop(4, [1, 3, 5])
