@@ -3,4 +3,5 @@ var KarateChop = function() {
         return arrayOfInt.indexOf(int);
     }
 }
+
 exports.KarateChop = KarateChop;
