@@ -1,5 +1,6 @@
 package es.rchavarria.karatechop
 
+
 class ConcurrentChop {
 
     public chop(def target, def values){
@@ -7,6 +8,6 @@ class ConcurrentChop {
             return -1
         }
         
-        target == values[0] ? 0 : -1
+        new ConcurrentMatcher(target:target, left:0, right:values.size() - 1, values:values).call()
     }
 }
