@@ -2,7 +2,7 @@
 
 require_once 'src/Chop.php';
 
-class ChopTest extends PHPUnit_Framework_TestCase {
+class ChopperTest extends PHPUnit_Framework_TestCase {
 
 	public function data_test(
 	) {
