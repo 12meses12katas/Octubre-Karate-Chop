@@ -53,6 +53,18 @@ class ChopperTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($result, $chopper->chop($number, $vector));
 	}
 
+	/**
+	 * @dataProvider data_test
+	*/
+	public function test_recursive_iterative(
+		$result,
+		$number,
+		$vector
+	) {
+		$chopper = new RecursiveIterativeChopper();
+		$this->assertEquals($result, $chopper->chop($number, $vector));
+	}
+
 }
 
 ?>

@@ -49,3 +49,32 @@ class RecursiveChopper {
 	}
 
 }
+
+class RecursiveIterativeChopper {
+
+	public function _chop(
+		$number,
+		$vector,
+		$left,
+		$right
+	) {
+		if ($left > $right)
+			return -1;
+		$mid = round(($right + $left) / 2);
+		if ($vector[$mid] == $number)
+			return $mid;
+		if ($vector[$mid] < $number)
+			return $this->_chop($number, $vector, $mid + 1, $right);
+		else
+			return $this->_chop($number, $vector, $left, $mid - 1);
+	}
+
+	public function chop(
+		$number,
+		$vector
+	) {
+		return $this->_chop($number, $vector, 0, count($vector) - 1);
+	}
+
+
+}
