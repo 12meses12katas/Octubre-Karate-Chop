@@ -29,3 +29,23 @@ class IterativeChopper {
 	}
 
 }
+
+class RecursiveChopper {
+
+	public function chop(
+		$number,
+		$vector
+	) {
+		$count = count($vector);
+		if ($count == 0)
+			return -1;
+		if ($count == 1)
+			return ($vector[0] == $number) ? 0 : -1;
+		$mid = round($count / 2);
+		if ($number < $vector[$mid])
+			return $this->chop($number, array_slice($vector, 0, $mid));
+		$right = $this->chop($number, array_slice($vector, $mid));
+		return ($right == -1) ? -1 : $mid + $right;
+	}
+
+}
