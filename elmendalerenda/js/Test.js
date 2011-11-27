@@ -1,6 +1,6 @@
 describe('Karate Chop!', function(){
 
-    describe('resolved iteratively', function(){
+    describe('Iterative', function(){
     
         it('finds a number', function(){
             var iterative = new Iterative();
