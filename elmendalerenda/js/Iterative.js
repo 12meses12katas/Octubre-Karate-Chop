@@ -50,34 +50,22 @@ function Recursive() {
         var elementFound = (list.get(middle) == value);
         if (elementFound) {
             found = middle;
-            return found;
         }
 
-
         var inLeftSide = list.get(middle) > value;
-
         if (inLeftSide) {
-            var leftPart = collection.slice(0, middle);
-            found = this.chop(value, leftPart);
+            found = this.chop(value, list.leftArray());
         }
 
         var inRightSide = list.get(middle) < value;
-
         if (inRightSide) {
-            var rightPart = collection.slice(middle + 1, collection.length);
-
-            found = this.chop(value, rightPart);
-
-            if (found > -1) found += middle + 1;
-
+            found = this.chop(value, list.rightArray());
+            if (found != this.notFound) found += middle + 1;
         }
-
 
         return found;
     }
 };
-
-
 
 function SortedCollection() {
 
@@ -108,10 +96,14 @@ function SortedCollection() {
     };
 
     this.isEmpty = function() {
-        return (this.size() <= 0);
+        return ((this._last - this._first) <= 0);
     };
 
-    this.size = function() {
-        return (this._last - this._first);
+    this.leftArray = function() {
+        return this._collection.slice(0, this.midPosition());
+    };
+
+    this.rightArray = function() {
+        return this._collection.slice(this.midPosition() + 1, this._last);
     };
 }
