@@ -14,6 +14,25 @@ karateChop.simpleChop = function(item, list){
     return -1;
 }
 
+karateChop.recursiveChop = function(item, list) {
+    if (list.length <= 0){
+        return -1;
+    }
+    if (list.isItemInMiddlePositionEqual(item)){
+        return list.getMiddlePosition();
+    }
+    var position = -1;
+    if (list.isItemInMiddlePositionGreaterThan(item)){
+        position = this.recursiveChop(item, list.getLeftSlice());
+    } else {
+        var positionInRightSlice = this.recursiveChop(item, list.getRightSlice());
+        if (positionInRightSlice >= 0){
+            position = list.getMiddlePosition() + positionInRightSlice + 1;
+        }
+    }
+    return position;
+}
+
 Array.prototype.getMiddlePosition = function(){
     return Math.floor(this.length / 2);
 }
